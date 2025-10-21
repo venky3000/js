@@ -1,5 +1,7 @@
 # Projects related to DOM
 
+## projects link
+[incomplete projects](https://stackblitz.com/edit/dom-project-chaiaurcode?file=index.html)
 ## Solution code
 
 ## project 1
@@ -61,4 +63,18 @@ form.addEventListener('submit', function(e) {
     results.innerHTML =  `<span>${bmi}</span>`;
   }
 });
+```
+
+## project 3
+```javascript
+const clock = document.getElementById('clock')
+// document.querySelector('#clock')
+
+
+
+setInterval(function() {
+  let date = new Date();
+  // console.log(date.toLocaleTimeString());
+  clock.innerHTML = date.toLocaleTimeString();
+}, 1000);
 ```
