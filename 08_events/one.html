@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Html Events</title>
+</head>
+<body style="background-color: #414141; color: aliceblue;">
+    <h2>Amazing Images</h2>
+    <div>
+        <ul id="images">
+            <li><img width="200px" id="photoshop" src="https://images.pexels.com/photos/3561339/pexels-photo-3561339.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt="photoshop"></li>
+
+            <li><img width="200px" id="japan" src="https://images.pexels.com/photos/3532553/pexels-photo-3532553.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt=""></li>
+
+            <li><img width="200px" id="river" src="https://images.pexels.com/photos/3532551/pexels-photo-3532551.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt=""></li>
+
+            <li><img width="200px" id="owl" src="https://images.pexels.com/photos/3532552/pexels-photo-3532552.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt="" ></li>
+
+            <li><img width="200px" id="prayer" src="https://images.pexels.com/photos/2522671/pexels-photo-2522671.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt=""></li>
+
+            <li><a style="color: aliceblue;" href="https://google.com" id="google">Google</a></li>
+
+        </ul>
+    </div>
+</body>
+<script>
+    // document.getElementById('owl').onclick = function() {
+    //     alert("owl clicked")
+    // }
+    // attachEvent() -> used in early times when internet explorer was used as browser
+    //jQuery -> .on for events
+    // type, timestamp, defaultPrevented, target, toElement, currentTarget, srcElement, clientX, clientY, screenX, screenY, altKey, ctrlKey, shiftKey, keyCode
+
+    // event bubbling is bubbling up i.e. to go from down to up, i.e. in below example, first will be owl then images i.e. from inside to outside and default value is always false for the function
+
+    // event capturing is opposite of event bubbling i.e. from up to down i.e. from outside to inside and it has true as the value for function
+
+    // document.getElementById('images').addEventListener('click', function(e) {
+    //     // alert("clicked inside the ul")
+    //     // console.log(e);
+    //     console.log("clicked inside the ul");
+    // }) // false -> event bubbling, true -> event capturing are called as types of event propagation
+    
+    // document.getElementById('owl').addEventListener('click', function(e) {
+    //     // alert("owl clicked")
+    //     // console.log(e);
+    //     console.log("owl clicked");
+    //     e.stopPropagation() // used for stopping the propagation in between fuctions
+    // })
+
+    // document.getElementById('google').addEventListener('click', function(e){
+    //     e.preventDefault(); // used to prevent the functionality of the element i.e. here, the url is disabled from working
+    //     e.stopPropagation();
+    //     console.log("google clicked");
+    // })
+
+    document.querySelector('#images').addEventListener('click', function(e){
+        // console.log(e.target); // used to display the element info
+        console.log(e.target.tagName); // used to display the element tag with info inside it
+
+        if(e.target.tagName === 'IMG') {
+            console.log(e.target.id);
+            let removeIt = e.target.parentNode
+            removeIt.remove() // directly remove the whole element with its tags
+        }
+
+        // removeIt.parentNode.removeChild(removeIt) // new method
+    }, false)
+    
+</script>
+</html>
